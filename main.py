@@ -28,6 +28,7 @@ def count_obj(grid, name):
     elif(name=="Foods"):
         return nb_food
 game = Game(quantity_food,init_energy_food,nb_tick_day,P0,grid,nb_day)
+"""
 bob1=Bob(100)
 bob2=Bob(200)
 game.create_bob(bob1, 5,5)
@@ -38,8 +39,33 @@ game.create_bob(bob3, 5,5)
 while n:
     bob3.move()
     n-=1
+"""
+bob1=Bob(100)
+bob2=Bob(200)
+bob3=Bob(100)
+bob4=Bob(200)
+
+bob5=Bob(100)
+bob6=Bob(200)
+
+bob7=Bob(100)
+bob8=Bob(200)
 
 
+game.create_bob(bob1, 5,5)
+game.create_bob(bob2, 5,5)
+game.create_bob(bob3, 3,0)
+game.create_bob(bob4, 0,9)
+game.create_bob(bob5, 6,6)
+game.create_bob(bob6, 6,5)
+game.create_bob(bob7, 4,5)
+game.create_bob(bob8, 5,4)
+game.destroy_object(bob8)
+game.destroy_object(bob7)
+game.destroy_object(bob5)
+
+
+print(game.grid.map)
 
 """
 game.init_bobs()    #Initialisation des bobs
@@ -64,7 +90,7 @@ affiche_map(game.grid.map)
 #game.partie()
 
     
-
+"""
 for coords ,bobs in game.grid.map.items():
     for bob in bobs:
         if isinstance(bob,Bob):
@@ -72,3 +98,4 @@ for coords ,bobs in game.grid.map.items():
             print("le buffer est "+str(bob.speed_buff))
             
 print("nombre des bobs a la fin est "+str(count_obj(game.grid, "Bobs")))
+"""
