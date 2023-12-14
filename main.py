@@ -6,7 +6,7 @@ from affichage_term import *
 from game import Game
 import time
 n=500
-quantity_food = 200
+quantity_food = 0
 init_energy_food = 100
 nb_tick_day = 5
 P0 = 100
@@ -28,6 +28,21 @@ def count_obj(grid, name):
     elif(name=="Foods"):
         return nb_food
 game = Game(quantity_food,init_energy_food,nb_tick_day,P0,grid,nb_day)
+
+game.init_bobs()    #Initialisation des bobs
+while(game.nb_day > 0):
+    
+    game.spawn_food()   #generation de la nourriture
+    nb_tick=game.get_nb_tick_day()
+    while nb_tick >0:
+        game.bob_play()
+        affiche_map(game.grid.map)
+        nb_tick-=1
+        
+    game.nb_day-=1
+
+
+
 """
 bob1=Bob(100)
 bob2=Bob(200)
@@ -39,7 +54,7 @@ game.create_bob(bob3, 5,5)
 while n:
     bob3.move()
     n-=1
-"""
+
 bob1=Bob(100)
 bob2=Bob(200)
 bob3=Bob(100)
@@ -66,7 +81,7 @@ game.destroy_object(bob5)
 
 
 print(game.grid.map)
-
+"""
 """
 game.init_bobs()    #Initialisation des bobs
 game.spawn_food()   #generation de la nourriture
